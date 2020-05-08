@@ -29,7 +29,7 @@ class expr
 		void display();
 };
 
-int expr::prec(char ch)
+int expr::prec(char ch) // will return equivalent precedence
 {
 	switch(ch)
 	{
@@ -45,7 +45,7 @@ int expr::prec(char ch)
 	}
 }
 
-char expr::asso(char a)
+char expr::asso(char a) // will return equilvalent associativity
 {
 	switch(a)
 	{
@@ -76,7 +76,7 @@ int expr::op_fn(char c,int b,int a)
 	}
 }
 
-bool expr::isPostfix()
+bool expr::isPostfix() // validation for postfix expression
 {
 	int l = s.length();
 	if(isdigit(s[0]) && isdigit(s[1]) && !isdigit(s[l-1]))
@@ -85,7 +85,7 @@ bool expr::isPostfix()
 		return 0;
 }
 
-bool expr::isPrefix()
+bool expr::isPrefix() // validation for prefix expression
 {
 	int l = s.length();
 	if(isdigit(s[l-1]) && isdigit(s[l-2]) && !isdigit(s[0]))
@@ -100,18 +100,18 @@ void expr::get()
 	cin>>s;
 }
 
-int expr::evalPost(Stack1<int> st,int flag)
+int expr::evalPost(Stack1<int> st,int flag) // Evaluation of postfix expression
 {
 	for(int i=0;i<s.length();i++)
 	{
 
-		if(isdigit(s[i]))
+		if(isdigit(s[i])) // if digit, push it into the stack
 		{
 			int temp = (int)s[i];
 			temp-=48;
 			st.push(temp);
 		}
-		else
+		else // otherwise pop two values and evaluate them and again push them onto the stack
 		{
 			int temp = st.isTop();
 			st.pop();
@@ -129,10 +129,11 @@ int expr::evalPost(Stack1<int> st,int flag)
 			}
 		}
 	}
-	return st.isTop();
+	return st.isTop(); // result
 }
 
-int expr::evalPre(Stack1<int> st,int flag)
+int expr::evalPre(Stack1<int> st,int flag) // evaluation of prefix expression using 
+					   // function for evaluation of posfix expression
 {
 	int l = s.length();
 	for(int i=0;i<l/2;i++)
@@ -145,7 +146,7 @@ int expr::evalPre(Stack1<int> st,int flag)
 	return val;
 }
 
-void expr::inToPost(Stack1<char> st)
+void expr::inToPost(Stack1<char> st) // infix to postfix conversion
 {
 	st.push('(');
 	s.push_back(')');
@@ -191,7 +192,7 @@ void expr::inToPost(Stack1<char> st)
 	}
 }
 
-void expr::inToPre(Stack1<char> st)
+void expr::inToPre(Stack1<char> st) // infix to prefix conversion using function for infix to postfix 
 {
 	int l = s.length();
 	for(int i=0;i<l/2;i++)
