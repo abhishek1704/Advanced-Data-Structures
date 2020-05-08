@@ -26,7 +26,7 @@ int find(int edges[],int i) // Function to find the set of the given vertex
 	    return find(edges, edges[i]);
 }
 
-void Graph::create()  // Function to create an undirected graph
+void Graph::create()  // Function to create an undirected graph using adjacency matrix
 {
 	int f=0;
 	cout<<"\nEnter the number of the vertex for the graph: ";
