@@ -30,12 +30,12 @@ public:
 	void height();
 };
 
-Tree::Tree()
+Tree::Tree() // Constructor
 {
 	root = NULL;
 }
 
-node* Tree::createBinTree()
+node* Tree::createBinTree() 
 {
 	root = new node;
 	root->left=root->right=NULL;
@@ -51,7 +51,7 @@ node* Tree::createBinTree()
 	return root;
 }
 
-node* Tree::insertRec(node *p)
+node* Tree::insertRec(node *p) // Recurcive creation of binary tree
 {
 	int f;
 
@@ -74,7 +74,7 @@ node* Tree::insertRec(node *p)
 	return p;
 }
 
-void Tree::insert()
+void Tree::insert() // Non-recurcive insertion of binary tree
 {
 	node *p=root;
 	int ch;
@@ -92,6 +92,7 @@ void Tree::insert()
 
 	do
 	{
+		// Each time user will be asked for the loaction to insert, either right or left
 		cout<<"Where do you want to inert?\n1.Left of "<<p->data<<"\n2.Right of "<<p->data<<endl;
 		cin>>ch;
 		if(ch==1)
@@ -132,7 +133,7 @@ Tree Tree::copyTree()
 	return t;
 }
 
-node* Tree::createCopy(node *p)
+node* Tree::createCopy(node *p) // Recursive function to copy a binary tree to an empty tree 
 {
 	node *cpy;
 	cpy = new node;
@@ -181,7 +182,7 @@ void Tree::display()
 	}while(1);
 }
 
-void Tree::displayLeaf(node *p)
+void Tree::displayLeaf(node *p) // function to display only leaf nodes 
 {
 	int flag=0,flag2=0;
 	if(p->left!=NULL)
@@ -205,7 +206,7 @@ void Tree::displayLeaf(node *p)
 	}
 }
 
-void Tree::inorder(node *p)
+void Tree::inorder(node *p) // Recursive inorder traversal
 {
 	if(p!=NULL)
 	{
@@ -215,7 +216,7 @@ void Tree::inorder(node *p)
 	}	
 }
 
-int Tree::depth(node* t)
+int Tree::depth(node* t) // Recursive function to calculate the depth of the binary tree
 {
     if (t == NULL)
         return 0;
