@@ -32,13 +32,13 @@ public:
 	void displayLevelWise();
 };
 
-BST::BST()
+BST::BST() // constructor
 {
 	root = NULL;
 	f = r = -1;
 }
 
-void BST::createBST()
+void BST::createBST() 
 {
 	int n;
 	cout<<"Enter the number of nodes you want to create: ";
@@ -48,7 +48,7 @@ void BST::createBST()
 		insert();
 
 }
-void BST::insert()
+void BST::insert() // Non-recursive function to insert a node in BST
 {
 	node *p = root;
 	int data;
@@ -104,7 +104,7 @@ void BST::display()
 	cout<<endl;
 }
 
-void BST::inorder(node *p)
+void BST::inorder(node *p) // Recursive inorder traversal
 {
 	if(p!=NULL)
 	{
@@ -116,7 +116,7 @@ void BST::inorder(node *p)
 	return;
 }
 
-void BST::search(int key,node **loc,node **par)
+void BST::search(int key,node **loc,node **par) // to search a node in BST
 {
 	if(root==NULL)
 	{
@@ -151,7 +151,7 @@ void BST::search(int key,node **loc,node **par)
 	}
 }
 
-void BST::delet(int key)
+void BST::delet(int key) // function to delete node from BST
 {
 	node *temp,*loc,*par;
 
@@ -234,7 +234,7 @@ BST BST::createMirror()
 	return tm;
 }
 
-node* BST::mirrorImg(node* p)
+node* BST::mirrorImg(node* p) // Recursive function to create a mirror image of BST
 {
 
 	if(p==NULL)
@@ -248,7 +248,7 @@ node* BST::mirrorImg(node* p)
 	return temp;
 }
 
-void BST::displayLevelWise()
+void BST::displayLevelWise() // Levelwise traversal of BST using queue ( BFS )
 {
 	node* temp;
 	if(root==NULL)
