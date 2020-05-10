@@ -82,7 +82,7 @@ void Graph::displayMST()
 		cout<<T[i].src<<setw(12)<<T[i].dest<<setw(12)<<T[i].wt<<endl;
 	}
 
-	cout<<"\nThe cost of the MST is : "<<cost<<endl;
+	cout<<"\nThe cost of the MST is : "<<cost<<endl; // minimum cost of spanning tree
 
 }
 void Graph::kruskal() // Algorithm to construct the minimum cost spanning tree
