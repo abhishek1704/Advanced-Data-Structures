@@ -1,9 +1,3 @@
-/*
- * Queue.cpp
- *
- *  Created on: 13-Jan-2020
- *      Author: dsflh-9
- */
 
 #include "Queue.h"
 #include <iostream>
@@ -77,8 +71,9 @@ node* Queue::getnode(node *nev) // Function to get patient's information
 	return nev;
 }
 
-void Queue::enqueue() // Function to create and insert a node in priority queue according to the priority by which he will be served
-{
+void Queue::enqueue()  // Function to create and insert a node in priority queue according to the priority 
+{		      // by which he will be served
+
 	node *nev,*temp;
 	nev = new node;
 	nev->next = NULL;
@@ -102,6 +97,7 @@ void Queue::enqueue() // Function to create and insert a node in priority queue 
     else 
     { 
   		temp = front;
+	    
         // Traverse the list and find a 
         // position to insert new node 
         while (temp->next != NULL && temp->next->priority < nev->priority)
