@@ -33,7 +33,7 @@ public:
 	void height();
 };
 
-ExpTree::ExpTree()
+ExpTree::ExpTree() // Constructor
 {
 	root = NULL;
 }
@@ -43,7 +43,7 @@ void ExpTree::create()
 	root = createExpTree();
 }
 
-node1* ExpTree::createExpTree()
+node1* ExpTree::createExpTree() // Creation of an expression tree using stack
 {
 	string s;
 	Stack1<node1*> st;
@@ -54,15 +54,15 @@ node1* ExpTree::createExpTree()
 
 	for(int i=0;i<s.length();i++)
 	{
-		if(int(s[i])>=65 && int(s[i])<=90)
+		if(int(s[i])>=65 && int(s[i])<=90) // if operator, push onto the stack 
 		{
 			p = new node1;
 			p->left = p->right = NULL;
 			p->ch = s[i];
 			st.push(p);
 		}
-		else
-		{
+		else  // otherwise, pop two nodes from the stack and set them to the left and right of the new node
+		{     // and push entire subtree onto the stack
 			p = new node1;
 			p->left = p->right = NULL;
 			p->ch = s[i];
@@ -78,7 +78,7 @@ node1* ExpTree::createExpTree()
 
 	temp1 = st.isTop();
 	st.pop();
-	return temp1;
+	return temp1; // return root of the tree created
 }
 
 void ExpTree::inorder(node1 *p)
